@@ -1,0 +1,9 @@
+heat.c: Uses MPI to calculate 2-D heat distribution in a grid of given size. Uses non-blocking send and receive for communication of ghost cells to reduce communication overhead.
+
+Usage: ./heat [rows] [cols] [row of heat source] [col of heat source] [temp of heat source] [vertical cores] [horizontal cores] [EPS]
+
+If run without argument, it will use the default setting: 10000*10000 grid, heat source at row 5, column 5, temperature=50.0, splitted into 2*2 cores, EPS=1e-3
+
+Number of cores (vertical*horizontal) must be equal to number of MPI processes.
+
+Use ENABLE_PRINT macro to print results to file 'heat_dist'.(SLOW)
